@@ -3,6 +3,10 @@ pipeline{
         GenericTrigger (causeString: 'blog is updated', regexpFilterExpression: '', regexpFilterText: '', token: 'ibizaGithub')
     }
 
+    options {
+        disableConcurrentBuilds()
+    }
+
     agent {
         label 'host'
     }
