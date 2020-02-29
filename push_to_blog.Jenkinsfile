@@ -14,19 +14,20 @@ pipeline{
     stages {
         stage('pull Ibiza directory') {
             steps{
-                // some block
-                sh script: '''
-                    cd /home/wanderlust/blog/Ibiza
-                    git pull
-                '''
+                ws ('/home/wanderlust/blog/Ibiza') {
+                    sh script: '''
+                        git pull
+                    '''
+                }
             }
         }
         stage('push blog to github'){
             steps{
-                sh script: '''
-                    cd /home/wanderlust/blog/Ibiza
-                    ./pushBlog.sh
-                '''
+                ws('/home/wanderlust/blog/Ibiza') {
+                    sh script: '''
+                        ./pushBlog.sh
+                    '''
+                }
             }
         }
     }
