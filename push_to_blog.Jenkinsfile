@@ -17,7 +17,7 @@ pipeline{
                 ws ('/home/wanderlust/blog/Ibiza') {
                     sh script: '''
                         git pull
-                        git secret reveal
+                        git secret reveal -f
                         git submodule update --recursive
                     '''
                 }
